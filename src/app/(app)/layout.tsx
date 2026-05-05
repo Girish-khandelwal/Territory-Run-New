@@ -1,23 +1,11 @@
-// src/app/(app)/layout.tsx
+import type { ReactNode } from 'react'; // ✅ FIX 1
+import { Sidebar } from '@/components/layout/Sidebar'; // ✅ FIX 2
 
-import type { ReactNode } from "react";
-import { Sidebar } from "@/components/layout/Sidebar";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/lib/auth";
-import { redirect } from "next/navigation";
-
-export default async function AppLayout({
+export default function AppLayout({
   children,
 }: {
   children: ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
-
-  // 🔒 Protect all routes inside (app)
-  if (!session) {
-    redirect("/auth/signin");
-  }
-
   return (
     <div className="min-h-screen bg-slate-950 flex">
       
