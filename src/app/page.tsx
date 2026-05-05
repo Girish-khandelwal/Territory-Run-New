@@ -1,7 +1,6 @@
+// src/app/page.tsx
+import { redirect } from 'next/navigation';
+
 export default function Home() {
-  return (
-    <div className="h-screen flex items-center justify-center bg-black text-white">
-      Tailwind Working 🚀 
-    </div>
-  );
+  redirect('/dashboard'); // safer entry point
 }
