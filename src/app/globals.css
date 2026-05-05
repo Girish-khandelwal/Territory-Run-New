@@ -2,12 +2,150 @@
 @tailwind components;
 @tailwind utilities;
 
+/* src/app/globals.css */
+
+/* ─── Fonts ───────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* REQUIRED for Mapbox */
+@import "mapbox-gl/dist/mapbox-gl.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ───────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --brand-400: #2dd4bf;
+  --brand-500: #14b8a6;
+  --brand-600: #0d9488;
+
+  --surface-0: #080e1a;
+  --surface-1: #0f172a;
+  --surface-2: #1e293b;
+  --surface-3: #2d3f55;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+/* ─── Base ───────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface-1); }
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-600);
+}
+
+/* ─── Components ───────────────────────────────── */
+@layer components {
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  /* FIXED: no fake Tailwind colors */
+  .btn-primary {
+    background: var(--brand-500);
+    color: #020617;
+    @apply font-semibold px-6 py-3 rounded-xl transition-all duration-200;
+  }
+  .btn-primary:hover {
+    background: var(--brand-400);
+    box-shadow: 0 0 20px rgba(20,184,166,0.4);
+  }
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+
+  .btn-secondary {
+    background: var(--surface-2);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255,255,255,0.1);
+    @apply px-6 py-3 rounded-xl transition-all duration-200;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(20,184,166,0.4);
+  }
+
+  .btn-ghost {
+    @apply text-slate-400 px-4 py-2 rounded-lg transition-all duration-200;
+  }
+  .btn-ghost:hover {
+    color: var(--brand-400);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .metric-card {
+    @apply rounded-2xl p-5 flex flex-col gap-1;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .metric-value {
+    font-family: var(--font-display);
+    @apply text-3xl text-slate-100 leading-none;
+  }
+
+  .metric-label {
+    font-family: var(--font-mono);
+    @apply text-xs uppercase tracking-widest text-slate-500;
+  }
+
+  .badge-live {
+    @apply inline-flex items-center gap-1.5 text-xs;
+    font-family: var(--font-mono);
+    background: rgba(239,68,68,0.2);
+    color: #f87171;
+    border: 1px solid rgba(239,68,68,0.3);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+}
+
+/* ─── Mapbox Overrides ─────────────────────────── */
+.mapboxgl-ctrl-attrib {
+  font-size: 10px !important;
+  opacity: 0.5;
+}
+
+.mapboxgl-ctrl-group {
+  background: var(--surface-2) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.mapboxgl-ctrl-group button {
+  background-color: transparent !important;
+  color: var(--text-secondary) !important;
+}
+
+/* ─── Activity Colors ─────────────────────────── */
+.activity-running  { color: #f97316; }
+.activity-walking  { color: #22c55e; }
+.activity-cycling  { color: #3b82f6; }
+.activity-trekking { color: #a855f7; }

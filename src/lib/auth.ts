@@ -5,7 +5,7 @@ import { NextAuthOptions } from 'next-auth';
 import GoogleProvider    from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { connectDB }    from '@/lib/db/mongoose';
-import  User  from "@/models/User";
+import User from "@/models/User";
 export const authOptions: NextAuthOptions = {
   // Store sessions as JWTs (no separate session DB table needed)
   session: { strategy: 'jwt' },

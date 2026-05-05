@@ -78,7 +78,7 @@ UserSchema.pre("save", async function () {
   // Assign color safely
   if (user.isNew && !user.color) {
     try {
-      const count = await mongoose.models.User.countDocuments();
+      const count = await mongoose.model("User").countDocuments();
       user.color = TERRITORY_COLORS[count % TERRITORY_COLORS.length];
     } catch {
       user.color = TERRITORY_COLORS[0];
