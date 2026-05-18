@@ -1,38 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Territory Run 🏃‍♂️🗺️
 
-## Getting Started
+A full-stack GPS fitness tracking and territory claiming platform built using Next.js, TypeScript, MongoDB, and Mapbox.
+Users can track runs, monitor fitness statistics, claim territories on the map, compete on leaderboards, and manage their profiles through a modern responsive web application.
+🚀 Features
+🔐 Secure Authentication (Google OAuth + Email/Password)
+📍 Live GPS Run Tracking
+🗺️ Interactive Territory Claiming System
+🏆 Global Leaderboards
+📊 Fitness Analytics Dashboard
+👤 User Profiles & Statistics
+🌙 Modern Dark UI
+⚡ REST API Architecture
+📱 Mobile App Backend Support
+🔒 JWT Protected APIs
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🛠️ Tech Stack
+Frontend
+Next.js 14
+React.js
+TypeScript
+Tailwind CSS
+Backend
+Next.js API Routes
+Node.js
+REST APIs
+JWT Authentication
+NextAuth
+Database
+MongoDB
+Mongoose
+Maps & Tracking
+Mapbox GL
+Geolocation APIs
+Authentication
+Google OAuth
+Credentials Authentication
+bcryptjs
+JWT Tokens
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📂 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+src/
+│
+├── app/
+│   ├── api/
+│   ├── dashboard/
+│   ├── leaderboard/
+│   ├── profile/
+│   └── track/
+│
+├── components/
+│   ├── layout/
+│   ├── map/
+│   └── ui/
+│
+├── lib/
+│   ├── auth.ts
+│   ├── jwt.ts
+│   └── db/
+│
+├── models/
+│   ├── User.ts
+│   ├── Run.ts
+│   └── Territory.ts
+│
+└── styles/
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# Territory-Run-New
-# Territory-Run-New
